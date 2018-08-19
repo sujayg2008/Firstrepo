@@ -22,7 +22,7 @@ public class BlackJackAssignment {
 		int min = 1;
 		int maxPlayers = 7;
 		int noOfDecksOfCard = 2;
-		boolean isDealerIsEmpty = true;
+		boolean isDealerEmpty = true;
 		int dealerTotal = 0;
 		int tempcard01 = 0;
 		int tempcard02 = 0;
@@ -63,22 +63,22 @@ public class BlackJackAssignment {
 		}
 		// Fetch the cards from the Set to List for easy access.
 		List<Integer> listOfCards = new ArrayList<Integer>(valuesOfTheCards);
-		System.out.println("Cards drawn are :" + listOfCards.toString());
+		System.out.println("\nCards drawn are :" + listOfCards.toString());
 
 		// Deal the cards.
 		HashMap<String, Integer> playesrAtTheTable = new HashMap<String, Integer>();
-		int playerNo = (noOfPlayers - (--noOfPlayers));
+		int playerNo = 1;
 		// Label the for() loop.
 		handlecards: for (int i = 0; i < listOfCards.size(); i++) {
 			// Handling Dealer's cards.
-			if (isDealerIsEmpty) {
+			if (isDealerEmpty) {
 				tempcard01 = listOfCards.get(i);
 				tempcard02 = listOfCards.get(++i);
 				dealerTotal = tempcard01 + tempcard02;
 				System.out.println("\n\nDealer's Cards are:- \nCard01: " + tempcard01);
 				System.out.print("Card02: " + tempcard02);
 				System.out.print(" >> Dealer's Total: " + dealerTotal + "\n\n\n");
-				isDealerIsEmpty = false;
+				isDealerEmpty = false;
 				continue handlecards;
 			}
 			// handle player's cards.
